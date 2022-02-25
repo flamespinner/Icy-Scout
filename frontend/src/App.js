@@ -1,8 +1,9 @@
 //import logo from './logo.svg';
 import './App.css';
 import Nav from './components/Nav';
-import graphCard from './components/graph';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import graphCard from './components/graphcard';
+import graph from './components/3dchart';
 
 function App() {
   return (
@@ -12,11 +13,10 @@ function App() {
           <img src={require('./resources/Logocolor.png')} />
           <h1>Icy Scout</h1>
           <Nav />
-          <graphCard />
+          <graph />
         </header>
       </div>
       <div id = "chartholder"></div>
-      <graph />
     </Router>
   );
 }
