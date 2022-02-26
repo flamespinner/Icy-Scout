@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import graphCard from './components/graphcard';
 import graph from './components/3dchart';
 
@@ -13,12 +13,17 @@ function App() {
           <img src={require('./resources/Logocolor.png')} />
           <h1>Icy Scout</h1>
           <Nav />
-          <graph />
         </header>
       </div>
       <div id = "chartholder"></div>
     </Router>
   );
 }
+
+const Home = () => {
+  <div>
+    <h1>Home Page</h1>
+  </div>
+};
 
 export default App;

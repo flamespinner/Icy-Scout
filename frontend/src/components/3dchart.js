@@ -1,7 +1,10 @@
+//import  './RGraph.bar';
+//import './RGraph.common.core';
+
 function graph() {
     // Some default variables. These margins are not all hard-and-fast
     // values - some are increased and some are reduced for each chart.
-    marginLeft    = 60;
+   /* marginLeft    = 60;
     marginRight   = 25;
     marginTop     = 45;
     marginBottom  = 65;
@@ -203,7 +206,7 @@ function graph() {
             yaxisScaleMax: 35,
             yaxisPosition: 'right'
         }
-    }).draw();
+    }).draw();*/
 }
 
 export default graph;

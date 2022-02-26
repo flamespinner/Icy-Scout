@@ -25,6 +25,7 @@ function graphCard() {
                     <canvas id="cvs" width="650" height="300">
 						[No canvas Support]
 					</canvas>
+                    <h1>Test</h1>
                 </CardContent>
             </Card>
         );
