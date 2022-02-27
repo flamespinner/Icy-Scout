@@ -1,2 +1,4 @@
 
 backend/.env
+frontend/node_modules/.cache/.eslintcache
+frontend/node_modules/.cache/*
