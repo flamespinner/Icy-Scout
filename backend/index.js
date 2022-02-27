@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const matchData = require('./routes/handler');
 require('dotenv/config');
 
 const app = express();
@@ -36,3 +37,5 @@ const PORT = process.env.PORT || 4000; // backend routing port
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
+
+console.log(matchData);
