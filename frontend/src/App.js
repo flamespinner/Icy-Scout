@@ -1,29 +1,25 @@
 //import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav';
-import graphCard from './components/graphcard';
-import graph from './components/3dchart';
+import Graph from './components/Graph';
+import Home from './components/Home';
 
 function App() {
   return (
     <Router>
       <div className = "App">
         <header className = "App-header">
-          <img src={require('./resources/Logocolor.png')} />
-          <h1>Icy Scout</h1>
           <Nav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Graph" element={Graph} />
+          </Routes>
         </header>
       </div>
       <div id = "chartholder"></div>
     </Router>
   );
 }
-
-const Home = () => {
-  <div>
-    <h1>Home Page</h1>
-  </div>
-};
 
 export default App;
