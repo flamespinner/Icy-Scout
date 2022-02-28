@@ -6,7 +6,7 @@ require('dotenv/config');
 const db = process.env.DB;
 const dbcollection = process.env.DBCOLLECTION;
 
-router.get('', async (req, res) => {
+router.get('/ProcessedTeamSchema', async (req, res) => {
     const matchData = db.dbcollection.find({}, (err, matchData) => {
         if (err) throw err;
         if (matchData) {

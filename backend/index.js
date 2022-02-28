@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const matchData = require('./routes/handler');
+const ProcessedTeamSchema = require('./models/Schemas');
+
 require('dotenv/config');
 
 const app = express();
@@ -39,3 +41,4 @@ app.listen(PORT, () => {
 });
 
 console.log(matchData);
+console.log(ProcessedTeamSchema);
