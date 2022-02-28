@@ -13,7 +13,7 @@ function App() {
           <Nav />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Graph" element={Graph} />
+            <Route path="/Graph" element={<Graph />} />
           </Routes>
         </header>
       </div>
