@@ -10,7 +10,7 @@ function Nav() {
             <div id="navMainMenu" class="navbar-collapse collapse">
                 <div className="navbar-nav ml-auto">
                     <Link to='/' className="nav-item nav-link active">Home |</Link>
-                    <Link to='/Graph' className="nav-item nav-link active">Graph |</Link>
+                    <Link to='/Graph' className="nav-item nav-link active">Data |</Link>
                     <a target="_blank" rel="noopener noreferrer" className="nav-item nav-link active" href='http://scout.team3926.org'>Strange Scout (New Tab)</a>
                 </div>
             </div>

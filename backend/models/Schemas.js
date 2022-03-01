@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-
 const { Schema } = mongoose;
 
-const ProcessedTeamSchema = new Schema({
+
+const TeamDataSchema = new Schema({
 	event: { type: String, required: true, index: true, default: 'N/A' },
 	team: { type: Number, required: true, index: true },
 	matches: { type: Number, required: true, index: true },
@@ -11,11 +11,12 @@ const ProcessedTeamSchema = new Schema({
 	updated: { type: Date, required: true }
 });
 
-ProcessedTeamSchema.methods.setUpdated = function() {
+TeamDataSchema.methods.setUpdated = function() {
 	this.updated = Date.now();
 };
 
-module.exports = ProcessedTeamSchema;
+//module.exports = ProcessedTeamSchema;
 
 // load schema into mongoose
-mongoose.model('processedTeams', ProcessedTeamSchema, 'processedTeams');
+const EventData = mongoose.model('processedTeams', ProcessedTeamSchema, 'processedTeams');
+module.exports = EventData;

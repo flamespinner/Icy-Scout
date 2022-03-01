@@ -1,15 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+// import {Link} from 'react-router-dom';
 
 function Graph() {
+    useEffect( () => {
+        fetchItems();
+    }, []);
+
+    const [items, setItems] = useState([]);
+
+    const fetchItems = async () => {
+        const data = await fetch('/TeamMatchData');
+        const items = await data.json();
+        setItems(items);
+    };
+
     return(
         <section>
-            <div className="container-fluid">
-                <h1 className="mt-5">Data Graphs</h1>
-                <div id="chartholder"></div>
-                <script src="./RGraph.js"></script>
+            <div class="container-fluid">
+                <h1 class="mt-5">Data</h1>
+
+               
             </div>
         </section>
     );
+
 }
 
 export default Graph;

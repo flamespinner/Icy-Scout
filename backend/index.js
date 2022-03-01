@@ -1,14 +1,14 @@
 const express = require('express');
+const routesHandler = require('./routes/handler.js');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const matchData = require('./routes/handler');
-const ProcessedTeamSchema = require('./models/Schemas');
-
 require('dotenv/config');
 
 const app = express();
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
+app.use('/', routesHandler);
 
 // DB Connection
 mongoose.connect(process.env.DB_URL, {
@@ -39,6 +39,3 @@ const PORT = process.env.PORT || 4000; // backend routing port
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
-
-console.log(matchData);
-console.log(ProcessedTeamSchema);

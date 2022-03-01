@@ -1,13 +1,30 @@
 const express = require('express');
 const router = express.Router();
+const Schemas = require('../models/Schemas');
+
 require('dotenv/config');
 
 //const Schemas = require('../modules/Schemas);
 const db = process.env.DB;
 const dbcollection = process.env.DBCOLLECTION;
-
+/*
 router.get('/ProcessedTeamSchema', async (req, res) => {
+    const data = Schemas.EventData;
     const matchData = db.dbcollection.find({}, (err, matchData) => {
+        if (err) throw err;
+        if (matchData) {
+            res.end(JSON.stringify(matchData));
+            console.log(matchData);
+        } else {
+            res.end();
+        }
+    });
+});*/
+
+router.get('/TeamMatchData', async (req, res) => {
+    const data = Schemas.EventData;
+
+    const ProcessedMatchData = await tweets.find({}).populate("user").exec((err, matchData) => {
         if (err) throw err;
         if (matchData) {
             res.end(JSON.stringify(matchData));
@@ -16,15 +33,5 @@ router.get('/ProcessedTeamSchema', async (req, res) => {
         }
     });
 });
-/*router.get('/tweets', async (req, res) => {
-    const tweets = Schemas.Tweets; //referance Schemas.js
 
-    const userTweets = await tweets.find({}, (err, tweetData) => { //qury table
-        if (err) throw err;
-        if (tweetData) {
-            res.end(JSON.stringify(tweetData));
-        } else {
-            res.end();
-        }
-    });
-});*/
+module.exports = router;
