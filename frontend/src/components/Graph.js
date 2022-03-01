@@ -12,6 +12,7 @@ function Graph() {
         const data = await fetch('/TeamMatchData');
         const items = await data.json();
         setItems(items);
+        console.log(data);
     };
 
     return(
