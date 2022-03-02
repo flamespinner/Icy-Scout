@@ -3,7 +3,7 @@ const router = express.Router();
 const TeamData = require('../models/TeamData');
 
 //routes
-/*router.get('/', (req, res) => {
+router.get('/', (req, res) => {
 
     TeamData.find({  })
         .then((data) => {
@@ -13,7 +13,7 @@ const TeamData = require('../models/TeamData');
         .catch((error) => {
             console.log('error: ', daerrorta);
         });
-});*/
+});
 
 router.get('/name', (req, res) => {
     const data =  {
@@ -23,17 +23,8 @@ router.get('/name', (req, res) => {
     res.json(data);
 });
 
-router.get('/', (req, res) => {
-    TeamData.find({ })
-        .then(() => {
-            console.log('Data: ', data);
-        })
-        .catch((error) => {
-            console.log('error: ', daerrorta);
-        });
-});
 
-/*&
+/*
 router.get('/TeamMatchData', async (req, res) => {
     const data = 
 });*/
