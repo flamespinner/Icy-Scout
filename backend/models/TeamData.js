@@ -18,5 +18,5 @@ TeamDataSchema.methods.setUpdated = function() {
 //module.exports = ProcessedTeamSchema;
 
 // load schema into mongoose
-const EventData = mongoose.model('processedTeams', ProcessedTeamSchema, 'processedTeams');
-module.exports = EventData;
+const TeamData = mongoose.model('processedTeams', TeamDataSchema);
+module.exports = TeamData;

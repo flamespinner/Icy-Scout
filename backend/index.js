@@ -1,41 +1,32 @@
 const express = require('express');
-const routesHandler = require('./routes/handler.js');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const matchData = require('./routes/handler');
-require('dotenv/config');
+const morgan = require('morgan');
+const path = require('path');
+require('dotenv').config();
 
 const app = express();
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
-app.use('/', routesHandler);
+const PORT = process.env.PORT;
 
-// DB Connection
+const routes = require('./routes/api');
+
 mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-})
-.then( () => {
-    console.log('DB Connected!');
-})
-.catch( (err) => {
-    console.log(err);
 });
 
-mongoose.set('debug', Boolean(process.env.MONGOOSEDEBUG));
 
-/*
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose is Connected!');
+});
+
+app.use(express.json()); //parse every jason file coming in from front end
+app.use(express.urlencoded({ extended: false })); //parse every urlencoded file coming in from front end. "extended: true/false" -> Read nested
+
 if (process.env.NODE_ENV === 'production') {
-    // Serve any static files
-    app.use(express.static(path.join(__dirname, 'frontend/build')));
-    // Handle React routing, return all requests to React app
-    app.get('*', function(req, res) {
-        res.sendFile(path.join(__dirname, 'frontend/build', routesHandler));
-    });
+    app.use(express.static('client/build'));
 }
-*/
 
-const PORT = process.env.PORT || 4000; // backend routing port
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`);
-});
+app.use(morgan('tiny')); //Morgan: HTTP Request Logger
+app.use('/api', routes);
+
+app.listen(PORT, console.log(`Server is starting at ${PORT}`));
