@@ -11,12 +11,6 @@ const TeamDataSchema = new Schema({
 	updated: { type: Date, required: true }
 });
 
-TeamDataSchema.methods.setUpdated = function() {
-	this.updated = Date.now();
-};
-
-//module.exports = ProcessedTeamSchema;
-
 // load schema into mongoose
 const TeamData = mongoose.model('processedTeams', TeamDataSchema);
 module.exports = TeamData;
